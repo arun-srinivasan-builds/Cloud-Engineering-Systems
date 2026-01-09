@@ -1,8 +1,6 @@
 # Feature Systems
 
-This document indexes the **curated Feature Systems** in this repository and routes directly to their **authoritative implementations and validation evidence**.
-
-Feature Systems surface **high-signal, end-to-end engineering systems** that demonstrate architectural judgment, execution depth, and verified outcomes. Each Feature System maps **1:1 to an Engineering System**, which remains the source of truth.
+This document lists the selected Feature Systems in the repository and links to their official implementations and proof of validation. Feature Systems highlight complete engineering solutions that show strong design decisions, practical execution, and confirmed results. Each Feature System directly corresponds to an Engineering System, which serves as the main source of truth.
 
 ---
 

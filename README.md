@@ -63,6 +63,6 @@ A complete, validated end-to-end system with authoritative documentation and ind
 Primary links:  
 [Root README](./README.md) |
 [Feature Systems](./FEATURE_SYSTEMS.md) |
-[Engineering Systems](./engineering-systems/README.md) |
+[Engineering Systems](./engineering-systems/Readme.md) |
 [Operating Requirements](./OPERATING_REQUIREMENTS.md) |
 [Quality Standards](./QUALITY_STANDARDS.md)

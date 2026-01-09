@@ -36,8 +36,6 @@ Each Feature System maps **1:1** to an Engineering System, which remains the sou
 
 ## What This Repository Proves
 
-The Feature Systems above demonstrate representative, validated outcomes across the repository:
-
 - **Network isolation and boundary enforcement** through VPC design  
   → [validation](./engineering-systems/vpc-networking-engineering/validation.md#validation-checks)
 
@@ -55,9 +53,6 @@ All systems are evaluated against a shared operating baseline:
 ---
 
 ## Glossary
-
-**Feature System**  
-A curated presentation of an Engineering System designed to surface validated outcomes efficiently.
 
 **Engineering System**  
 A complete, validated end-to-end system with authoritative documentation and independent reviewability.

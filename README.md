@@ -63,3 +63,12 @@ A curated presentation of an Engineering System designed to surface validated ou
 A complete, validated end-to-end system with authoritative documentation and independent reviewability.
 
 ---
+
+## Navigation
+
+Primary links:  
+[Root README](./README.md) |
+[Feature Systems](./FEATURE_SYSTEMS.md) |
+[Engineering Systems](./engineering-systems/README.md) |
+[Operating Requirements](./OPERATING_REQUIREMENTS.md) |
+[Quality Standards](./QUALITY_STANDARDS.md)

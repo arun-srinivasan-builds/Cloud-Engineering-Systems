@@ -2,9 +2,6 @@ This directory holds complete cloud Engineering Systems, grouped by domain. Each
 
 ## Repository Structure
 
-- **Feature Systems**  
-  The root README highlights selected entry points for easier, focused review.
-
 - **Engineering Systems** *(this directory)*  
   Full system implementations with authoritative documentation and validation.
 
@@ -18,3 +15,26 @@ This directory holds complete cloud Engineering Systems, grouped by domain. Each
 | System | What It Proves | Start Here | Execution | Evidence |
 |------|---------------|-----------|----------|----------|
 | [VPC Networking Engineering](./vpc-networking-engineering/README.md) | Secure network baselines and segmentation | [implementation.md](./vpc-networking-engineering/implementation.md) | [executions/](./vpc-networking-engineering/executions/) | [validation.md](./vpc-networking-engineering/validation.md) |
+
+---
+
+## System Structure (Consistent Across All Systems)
+
+Every Engineering System follows the same structure:
+
+- **Readme.md** – System overview and navigation  
+- **business-context.md** – Problem, requirements, constraints, non-goals  
+- **architecture.md** – Design, boundaries, tradeoffs  
+- **implementation.md** – Step-by-step implementation  
+- **validation.md** – Verification, observed results, failure conditions  
+- **executions/** – Ordered, pattern-specific walkthroughs  
+
+---
+
+## Where to Start
+
+- **Overview & Context** → `README.md`, `business-context.md`  
+- **Design & Decisions** → `architecture.md`  
+- **Build & Validate** → `implementation.md`, `validation.md`  
+
+---

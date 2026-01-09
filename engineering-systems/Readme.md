@@ -1,11 +1,9 @@
-This directory contains **authoritative, end-to-end Engineering Systems**, organized by domain.
-
-Each Engineering System is a **complete, validated cloud system** and serves as the **source of truth** for any related Feature Systems. Systems are independently reviewable and document the full lifecycle: context, design, implementation, and validation.
+This directory holds complete cloud Engineering Systems, grouped by domain. Each system is fully tested, acts as the main reference for related Feature Systems, and includes clear documentation of its entire lifecycle—from context and design to implementation and validation.
 
 ## Repository Structure
 
 - **Feature Systems**  
-  Curated entry points surfaced in the root README for focused review.
+  The root README highlights selected entry points for easier, focused review.
 
 - **Engineering Systems** *(this directory)*  
   Full system implementations with authoritative documentation and validation.

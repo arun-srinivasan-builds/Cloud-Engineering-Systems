@@ -22,8 +22,7 @@ End-to-end cloud engineering systems that are tested through hands-on practice, 
 
 ## Featured Systems (Start Here)
 
-Curated entry points into high-signal, end-to-end Engineering Systems.  
-Each Feature System maps **1:1** to an Engineering System, which remains the source of truth.
+Selected entry points lead into complete Engineering Systems with strong signals. Each Feature System directly matches one Engineering System, which serves as the main source of truth.
 
 1. **[Secure VPC Networking Baseline](./feature-systems/fs-secure-vpc-networking-baseline/README.md)**  
    Secure, isolated network infrastructure using VPC design, subnet segmentation, and security controls.  

@@ -24,9 +24,9 @@ Primary links:
 - [Quality Standards](./QUALITY_STANDARDS.md) – Quality bar and verification rules
 
 **Build & Validate**
-- [Engineering Systems](./engineering-systems/README.md) – All system implementations
-- [Implementation & Validation Guides](./engineering-systems/README.md)
-- [Operating Requirements](./OPERATING_REQUIREMENTS.md) – Operational constraints
+- [Engineering Systems](./engineering-systems/Readme.md) – All system implementations
+- [Implementation & Validation Guides](./engineering-systems/Readme.md)
+- [Operating Requirements](./Operating_Requirements.md) – Operational constraints
 
 ---
 

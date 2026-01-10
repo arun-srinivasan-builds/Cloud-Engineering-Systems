@@ -2,16 +2,16 @@
 
 End-to-end cloud engineering systems that are tested through hands-on practice, refined with proven implementations, supported by clear evidence-based documentation, and delivered with validation frameworks, implementation guides, and execution paths that demonstrate real-world capabilities.
 
-## How to Navigate
-
 ## Navigation
 
 Primary links:  
-[Root README](./README.md) |
+[Root Readme](./README.md) |
 [Feature Systems](./FEATURE_SYSTEMS.md) |
 [Engineering Systems](./engineering-systems/Readme.md) |
 [Operating Requirements](./OPERATING_REQUIREMENTS.md) |
 [Quality Standards](./QUALITY_STANDARDS.md)
+  
+</div>
 
 ---
 **Overview**

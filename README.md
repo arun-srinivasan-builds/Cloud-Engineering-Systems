@@ -4,6 +4,16 @@ End-to-end cloud engineering systems that are tested through hands-on practice, 
 
 ## How to Navigate
 
+## Navigation
+
+Primary links:  
+[Root README](./README.md) |
+[Feature Systems](./FEATURE_SYSTEMS.md) |
+[Engineering Systems](./engineering-systems/Readme.md) |
+[Operating Requirements](./OPERATING_REQUIREMENTS.md) |
+[Quality Standards](./QUALITY_STANDARDS.md)
+
+---
 **Overview**
 - [What This Repository Proves](#what-this-repository-proves) – Validated outcomes and capabilities
 - [Featured Systems (Start Here)](#featured-systems-start-here) – Secure networking
@@ -58,11 +68,4 @@ A complete, validated end-to-end system with authoritative documentation and ind
 
 ---
 
-## Navigation
 
-Primary links:  
-[Root README](./README.md) |
-[Feature Systems](./FEATURE_SYSTEMS.md) |
-[Engineering Systems](./engineering-systems/Readme.md) |
-[Operating Requirements](./OPERATING_REQUIREMENTS.md) |
-[Quality Standards](./QUALITY_STANDARDS.md)

@@ -9,7 +9,7 @@ Primary links:
 [Feature Systems](./FEATURE_SYSTEMS.md) |
 [Engineering Systems](./engineering-systems/Readme.md) |
 [Operating Requirements](./Operating_Requirements.md) |
-[Quality Standards](./QUALITY_STANDARDS.md)
+[Quality Standards](./Quality_Standards.md)
   
 </div>
 

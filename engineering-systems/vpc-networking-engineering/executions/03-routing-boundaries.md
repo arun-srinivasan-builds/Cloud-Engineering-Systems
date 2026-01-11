@@ -40,9 +40,6 @@
 ---
 
 ## Testing VPC Connectivity
-
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-connectivity_8ee57662)
-
 ---
 
 ## Introducing Today's Project!
@@ -55,130 +52,147 @@ Amazon VPC is a logically isolated network boundary within an AWS account. It de
 
 To ensure secure and efficient communication within the cloud environment, I leverage Amazon Virtual Private Cloud (VPC) as the foundation of my project’s networking setup. The focus is on controlling traffic flow and enforcing security at multiple layers.
 
-#### Core Essentials Implemented
-##### Route Table
-* Defines how traffic is directed within the VPC.
-* Associates subnets with specific routes to control communication between internal resources and external networks.
-* Ensures proper connectivity to the internet (via Internet Gateway) or private networks (via VPN/Direct Connect).
-
-##### Security Group
-* Acts as a virtual firewall at the instance level.
-* Controls inbound and outbound traffic for EC2 instances.
-* Configured with rules to allow only necessary protocols and ports (e.g., SSH, HTTP/HTTPS).
-* Provides stateful filtering, meaning return traffic is automatically allowed.
-
-##### Network ACL (Access Control List)
-* Provides an additional layer of security at the subnet level.
-* Controls inbound and outbound traffic using stateless rules (explicitly allow or deny).
-* Useful for setting broader restrictions across multiple instances in a subnet.
-* Helps mitigate risks by blocking unwanted IP ranges or protocols.
 
 ### Personal reflection
-Completing this project provided me with valuable hands-on experience in the foundational aspects of AWS networking.
-This project showed me that cloud infrastructure is not just about deploying resources—it’s about designing secure, scalable systems with intention. I now feel more prepared to approach larger, more complex architectures with confidence. 
+Working through this Amazon VPC project gave me a deeper appreciation for how cloud networking is both powerful and nuanced. At first glance, launching EC2 instances and connecting them seems straightforward, but I quickly realized that every detail in the VPC configuration—whether it’s a route table, security group, or NACL—plays a critical role in determining connectivity.<br> <br>
+The entire exercise, including documentation, was completed in approximately 2 hours, reflecting both my grasp of the theoretical concepts and my ability to apply them effectively in practice. This project reinforced my confidence in working with AWS networking components and highlighted the importance of structured planning when building cloud infrastructure.
 
-The entire exercise, including documentation, was completed in approximately 45 minutes, reflecting both my grasp of the theoretical concepts and my ability to apply them effectively in practice. This project reinforced my confidence in working with AWS networking components and highlighted the importance of structured planning when building cloud infrastructure.
+* Building confidence in fundamentals: Successfully connecting to my public server and verifying internet access reinforced my understanding of how Internet Gateways and route tables enable external communication. It was rewarding to see theory translate into practice.
+* Troubleshooting as a growth opportunity: When my initial ping test failed, I had to dig into NACL rules. This experience taught me that even small misconfigurations can block traffic, and that patience and systematic troubleshooting are essential skills in cloud engineering.
+* Appreciating the difference between SGs and NACLs: I didn’t expect the stateless nature of NACLs to be so impactful. Learning how they differ from stateful Security Groups gave me a clearer mental model of AWS networking.
+* Efficiency through hands-on practice: Completing the setup and resolving errors within two hours showed me how practice accelerates learning. Each step—from SSH access to curl tests—helped me build confidence in applying AWS concepts quickly.
+* Professional takeaway: Beyond technical skills, this project reminded me of the importance of documenting my process. Clear notes on what worked, what failed, and how I fixed issues will strengthen my portfolio and demonstrate problem-solving ability to future employers.
 
-One thing I didn't expect in this project was default network ACL available which is designed to allow all traffic to move freely until you decide to customize the rules to fit your needs.
+One thing you probably didn’t expect in this project was how subtle networking configurations inside the VPC can make or break connectivity.
+NACLs are stateless, meaning they track traffic separately for each direction, unlike stateful Security Groups (SGs) where an allowed inbound request automatically permits the outbound response.
+
+This project took me 2 hours to set up VPC and its components including public and private instances. Then troubleshoot for errors and establish the connections that we intended to in this project.
+
+---
+
+### What is Amazon VPC?
+
+A VPC (Virtual Private Cloud) is like your own private space inside AWS. In this space, you can set up and run AWS resources in a network that you control. The main idea is that it’s separate and secure, so your resources don’t mix withothers.
+
+### How I used Amazon VPC in this project
+
+### 1. Connected to my Public Server
+* Launched an EC2 instance in a public subnet of my VPC.
+* The subnet was associated with a route table that had a route to the Internet Gateway, enabling external access.
+* Connected via SSH using the instance’s public IP/DNS, demonstrating secure access through the VPC’s networking setup.
+
+### 2.Tested connectivity between EC2 instances (Public ↔ Private)
+* Deployed another EC2 instance in a private subnet of the same VPC.
+* Using the public server as a host, tested reachability to the private server’s private IP using ping command.
+* This validated that your VPC routing, Security Groups, and NACLs were correctly configured to allow internal communication between subnets.
+
+### 3.Verified Internet connectivity from the Public Server
+* From the public EC2 instance, ran curl commands to external domains.
+* Successful responses confirmed that the Internet Gateway and route table associations were functioning.
 
 ### Mission to accomplish:
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/2.%20VPC%20Traffic%20Flow%20and%20Security/game%20plan.png?raw=true)
-
----
-## Route tables
-
-Route tables are like GPS for the resources in your subnet. Just like a GPS helps people get to their destination in a city, a route table is a table of rules, called routes, that decide where the data in your network should go.
-Every subnet in your VPC needs to be linked to a route table, because the table tells your subnet's traffic where to travel to send and receive data. For example, if you have a web server (i.e. an EC2 instance) hosting a website, the EC2 instance's subnet needs a route table that knows how to direct incoming traffic to the website.
-
-Routes tables are needed to make a subnet public because Subnet needs to have a route to an nternet gateway in order to be considered public.
-
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/2.%20VPC%20Traffic%20Flow%20and%20Security/Route%20table.png?raw=true)
-
-### Route destination and target
-
-A route table is made up of routes, which are defined by its destination and target.
-
-* Destination: The IP address range that traffic wants to reach.
-* Target: The road or path that the traffic will have to take to get to its destination.
-
-- igw-xxxxxx: Means the traffic is routed to the internet via the Internet Gateway.
-- local: Means the traffic stays within the VPC, allowing internal communication between resources.
-
-The route in my route table that directed internet-bound traffic to my internet gateway had a destination of 0.0.0.0/0 and a target of MyWork IG(internet gateway).
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/gameplan.png?raw=true)
 
 ---
 
-## Security groups
+## 1. Connecting to an EC2 Instance
 
-If VPCs are cities and subnets are neighbourhoods, a security group is a security checkpoint, or security guard, at the entrance for each building (resource) in that neighbourhood (subnet).
-Every resource must be associated with a security group. This means security groups don't attach to a VPC or a subnet, they attach to a specific resource within that VPC/subnet. If you don't specify a security group when you launch a resource, it will use the default.
-Security groups are responsible for checking who comes in and out. They have strict rules about what kind of traffic can enter or leave the resource based on its IP address, protocols and port numbers.
+Connectivity is all about how well different parts of your network talk to each other and with external networks. It's essential because connectivity is how data flows smoothly across your network, powering everything from simple web hosting on the Internet to complex operations
 
-Protocols: With VPCs as our city and every resource as a building, think of protocols as different vehicles, like buses, taxis and trucks, to deliver data in different ways. Protocols are special rules that help data move across the internet, each designed to send data for a specific kind of task. 
+1. Connect to MyWork Public Server
+My first connectivity test was whether I could connect to my network's Public Server(EC2 instance) which is "MyWork Public Server"
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/2.%20VPC%20Traffic%20Flow%20and%20Security/Security%20group_create.png?raw=true)
+#### EC2 Instance Connect
 
-### Inbound vs Outbound rules
+* EC2 Instance Connect is a shortcut way to get direct SSH access to your EC2 instance!
+* When you use SSH to connect to an EC2 instance, you usually have to:
+* Generate a key pair (public and private keys).
+* Associate the public key with your EC2 instance.
+* Securely store the private key on your local machine.
+* Set up an SSH client (a software that can handle the SSH protocol), provide it your private key, and establish a secure connection to your EC2 instance.
+* EC2 Instance Connect is an alternative way to use SSH - Instance Connect lets you securely connect to your EC2 instances directly using the AWS Management Console. You're still using SSH, but with all the key management handling it for you. This takes away a lot of the complexity of setting up SSH.
 
-* Inbound rules: Inbound rules control the data that can enter the resources in your security group. 
+Here's how EC2 Instance Connect works:
+* It generates a one-time-use SSH key pair on your behalf when you initiate a connection.
+* It automatically links the public key to the EC2 instance.
+* It allows the key to be used for a short period.
 
-In this scenario, setting up inbound rules is important for allowing users to access your public website, while 
-Examples of inbound data: Visitors and form submissions to your website.
-I  configured an inbound rule that allows all inbound HTTP traffic.
+My first attempt at getting direct access to my public server resulted in an error, because the security group associated with MyWork Public Server lets in all inbound HTTP traffic, but this is not how we're trying to access our Public Server!
+We're trying to access MyWork Public Server using SSH through EC2 Instance Connect, which is a different traffic type.
 
-* Outbound rules: Outbound rules are rules to control that data that your resources can send out.
-By default, Outbound rule will allow all outbound traffic.
-outbound rules help manage how your server interacts with other parts of the internet.
-Examples of outbound data: Your server requests data from another service; your app sends out an email notification.
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Connect_public_server_error.png?raw=true)
+
+I fixed this error by updating MyWork Public Server's security group so it can let in SSH traffic. Choosing Anywhere-IPv4 as the source lets in SSH connections from any IPv4 address.
+
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Connect_public_server_Success.png?raw=true)
+
+---
+
+## 2. Connectivity Between Servers
+
+In this step, Get your Public Server to talk to your Private Server.
+Troubleshoot for any connection issue.
+
+What is Ping?
+Ping is a common computer network tool used to check whether your computer can communicate with another computer or device on a network.
+Think of it like sending a tiny message that says "hello, are you there?" to another computer.
+When you "ping" a specific IP address address, your server (in this case, MyWork Public Server) sends a small packet of data to that address (MyWork Private Server), asking for a response. Ping will tell you whether you get a response back and how long it took to get a response.
+If you receive a response quickly, it means the connection between your computer and the other computer is good. If it takes a long time or you get no response, there might be a problem with the connection!
+
+The ping command I ran was 
+Ping 10.0.1.199 which is an IPv4 address of my Private Server(EC2 instance). 
+
+The first ping returned a single line output. 
+This single line indicates that your Public Server has sent out a ping message and that's about it.
+Usually, when you ping another computer successfully, you should see several replies back instantly. Each reply tells you how long it took for the message to go to the Private Server and come back.
+If you don't get any replies (that's our situation right now), or if the replies stop suddenly, it's usually a sign that there's a problem with the connection. 
+
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Ping_private_server_fail.png?raw=true)
 
 ---
 
-## Network ACLs
+Troubleshooting Connectivity
 
-Think of Network ACLs as traffic cops stationed at every entry and exit point of your subnet, checking each data packet against a table of ACL rules before allowing them through.
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Private_sg_not_allowing_inbound_ICMP%20traffic.png?raw=true)
 
-### Security groups vs. network ACLs
+How did you resolve this error?
+* Our route table is set up perfectly (zero issues there!), but the MyWork NACL tab shows us that all traffic inbound and outbound are denied.
+This means even if our route table correctly directs the ping to MyWork Private Server, the network ACL is checking the ping traffic at the entrance of your private subnet. If it finds that ICMP traffic is not allowed, it stops the ping there.
+* Edit the inbound rules tab and add a new rule to let MyWork Public Server ping MyWork Private Server.
+* Select Add new rule.
+* Assign 100 as the rule number.
+* Change the Type to All ICMP - IPv4.
 
-* Network ACLs are used to set broad traffic rules that apply to an entire subnet. For example, blocking incoming traffic from a particular range of IP addresses or denying all outbound traffic to certain ports.
-* Security groups allow for more granular control, managing access to individual resource. You can specify which ports and protocols are allowed for each connected resource.  
-<br>
-Having both is a great security practice! You can set broad restrictions at the subnet level with ACLs, and more specific limits at the resource level through security groups. This dual layer takes security to the next level as traffic must pass through multiple checks, which reduces the chances of unwanted access.
+What is ICMP - IPv4?
+When you set a rule for All ICMP - IPv4, you're allowing all types of ICMP messages for IPv4 addresses. This covers a wide range of operational messages that are essential for diagnosing network connectivity issues, ping requests and responses are just one type of ICMP messages.
+Set the Source to traffic coming from your public subnet - 10.0.0.0/24.
 
-### Default vs Custom Network ACLs
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/public_to_private_talk.png?raw=true)
 
-Similar to security groups, network ACLs use inbound and outbound rules
-AWS sets up a default network ACL for every VPC in your account. This default is designed to allow all traffic to move freely until you decide to customize the rules to fit your needs.
-Just like security groups, network ACLs use inbound and outbound rules to decide which data packets are allowed to enter or leave subnets:
-
-* Rule 100 Inbound allows all inbound traffic into the Public Subnet.
-* Rule 100 Outbound allows all traffic out of the Public Subnet.
-
-The second line in each ruleset shows an asterisk (*) that acts as a catch-all rule in case traffic does not match any of the earlier rules. In our case, since Rule 100 already allows all traffic, the asterisk rule won't actually come into play.
-This means default network ACLs allow all inbound and outbound traffic, unless customized.
-
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/2.%20VPC%20Traffic%20Flow%20and%20Security/inbound%20rules.png?raw=true)
-
-### Recap
-
-* Client/User: A user enters the URL of your website into their web browser and hits enter.
-
-* Internet Gateway: The request is sent from the user's browser through the internet and reaches your internet gateway, MyWork IG.
-
-* VPC: The internet gateway forwards the user's request to the VPC it's attached to, MyWork VPC.
-
-* Route Table: Your VPC has a route table for your public subnet (called MyWork route table), which directs traffic to your EC2 instance hosting the website. The user's request get put on the local route in the route table.
-
-* Network ACL: While en route to your EC2 instance, the request has to pass through the network ACL associated with your public subnet. The network ACL has an inbound rule (rule 100) that lets in traffic from anywhere (0.0.0.0/0), so your request is let through.
-
-* Public Subnet: The request enters your public subnet Public 1 and travels to your EC2 instance within the subnet.
-
-* Security Group: The request reaches the security group MyWork Security Group attached to the EC2 instance. The security group has an inbound rule that allows HTTP traffic (Port 80) from anywhere (0.0.0.0/0), so the request can pass through.
-
-* EC2 Instance: The request reaches your EC2 instance hosting the website. The web server on the EC2 instance processes the request and prepares the response.
-
-* Data gets sent back: Website content is sent back to the user. The outbound traffic goes through the security group, public subnet, network ACL, route table, VPC, and internet gateway, and user gets to see website content load on their page.
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Ping_private_server_Success.png?raw=true)
 
 ---
+
+## 3. Connectivity to the Internet
+
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Test%20VPC%20connectivity%20with%20the%20internet.png?raw=true)
+
+I used curl to test the connectivity between my Public Server(EC2 instance) and Internet.
+What does curl mean?
+Just like ping, curl is a tool to test connectivity in a network.
+
+### Ping vs Curl
+
+Ping and curl are different because Ping checks if one computer can contact another (and how long messages take to travel back and forwth), curl is used to transfer data to or from a server. That means on top of checking connectivity, you can use curl to grab data from, or upload data into other servers on the internet!
+
+What was the successful curl command you ran?
+I ran the curl command Curl google.com which returned the complete HTML content of google.com website
+
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/curl.png?raw=true)
+
+
+---
+
 
 ---

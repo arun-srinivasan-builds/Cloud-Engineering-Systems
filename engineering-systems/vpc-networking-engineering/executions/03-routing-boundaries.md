@@ -51,81 +51,134 @@
 
 Amazon VPC is a logically isolated network boundary within an AWS account. It defines IP address space, subnet segmentation, routing behavior, and traffic control points. The service exists to provide isolation, deterministic network control, and a foundation for secure communication between cloud resources and external networks.
 
-### How I used Amazon VPC in this project
+### How I used Amazon VPC in this project?
 
-The VPC was used as a controlled environment to validate basic network reachability between compute resources and external endpoints. The focus was on understanding traffic flow, routing dependencies, and the impact of security controls on connectivity rather than on feature breadth.
+To ensure secure and efficient communication within the cloud environment, I leverage Amazon Virtual Private Cloud (VPC) as the foundation of my project’s networking setup. The focus is on controlling traffic flow and enforcing security at multiple layers.
 
-### One thing I didn't expect in this project was...
+#### Core Essentials Implemented
+##### Route Table
+* Defines how traffic is directed within the VPC.
+* Associates subnets with specific routes to control communication between internal resources and external networks.
+* Ensures proper connectivity to the internet (via Internet Gateway) or private networks (via VPN/Direct Connect).
 
-Practical validation exposed how small configuration choices in routing tables and security controls directly affect reachability. The exercise demonstrated that theoretical understanding of VPC components is insufficient without observing real traffic behavior and failure modes.
+##### Security Group
+* Acts as a virtual firewall at the instance level.
+* Controls inbound and outbound traffic for EC2 instances.
+* Configured with rules to allow only necessary protocols and ports (e.g., SSH, HTTP/HTTPS).
+* Provides stateful filtering, meaning return traffic is automatically allowed.
 
-### This project took me...
+##### Network ACL (Access Control List)
+* Provides an additional layer of security at the subnet level.
+* Controls inbound and outbound traffic using stateless rules (explicitly allow or deny).
+* Useful for setting broader restrictions across multiple instances in a subnet.
+* Helps mitigate risks by blocking unwanted IP ranges or protocols.
 
-The work was scoped to a short execution window and focused on a single objective: validating VPC connectivity using EC2 instances. Time was allocated to configuration review, validation, and troubleshooting rather than automation or optimization.
+### Personal reflection
+Completing this project provided me with valuable hands-on experience in the foundational aspects of AWS networking.
+This project showed me that cloud infrastructure is not just about deploying resources—it’s about designing secure, scalable systems with intention. I now feel more prepared to approach larger, more complex architectures with confidence. 
+
+The entire exercise, including documentation, was completed in approximately 45 minutes, reflecting both my grasp of the theoretical concepts and my ability to apply them effectively in practice. This project reinforced my confidence in working with AWS networking components and highlighted the importance of structured planning when building cloud infrastructure.
+
+One thing I didn't expect in this project was default network ACL available which is designed to allow all traffic to move freely until you decide to customize the rules to fit your needs.
+
+### Mission to accomplish:
+
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/2.%20VPC%20Traffic%20Flow%20and%20Security/game%20plan.png?raw=true)
+
+---
+## Route tables
+
+Route tables are like GPS for the resources in your subnet. Just like a GPS helps people get to their destination in a city, a route table is a table of rules, called routes, that decide where the data in your network should go.
+Every subnet in your VPC needs to be linked to a route table, because the table tells your subnet's traffic where to travel to send and receive data. For example, if you have a web server (i.e. an EC2 instance) hosting a website, the EC2 instance's subnet needs a route table that knows how to direct incoming traffic to the website.
+
+Routes tables are needed to make a subnet public because Subnet needs to have a route to an nternet gateway in order to be considered public.
+
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/2.%20VPC%20Traffic%20Flow%20and%20Security/Route%20table.png?raw=true)
+
+### Route destination and target
+
+A route table is made up of routes, which are defined by its destination and target.
+
+* Destination: The IP address range that traffic wants to reach.
+* Target: The road or path that the traffic will have to take to get to its destination.
+
+- igw-xxxxxx: Means the traffic is routed to the internet via the Internet Gateway.
+- local: Means the traffic stays within the VPC, allowing internal communication between resources.
+
+The route in my route table that directed internet-bound traffic to my internet gateway had a destination of 0.0.0.0/0 and a target of MyWork IG(internet gateway).
 
 ---
 
-## Connecting to an EC2 Instance
+## Security groups
 
-In a VPC, connectivity determines whether resources can communicate internally or reach external destinations. This depends on routing tables, subnet placement, and security controls. When misconfigured, failures range from partial reachability to complete isolation.
+If VPCs are cities and subnets are neighbourhoods, a security group is a security checkpoint, or security guard, at the entrance for each building (resource) in that neighbourhood (subnet).
+Every resource must be associated with a security group. This means security groups don't attach to a VPC or a subnet, they attach to a specific resource within that VPC/subnet. If you don't specify a security group when you launch a resource, it will use the default.
+Security groups are responsible for checking who comes in and out. They have strict rules about what kind of traffic can enter or leave the resource based on its IP address, protocols and port numbers.
 
-The EC2 instance was accessed to confirm baseline network functionality, including subnet routing, inbound access controls, and instance-level reachability. Successful access indicated that the VPC and associated security constructs supported basic inbound communication.
+Protocols: With VPCs as our city and every resource as a building, think of protocols as different vehicles, like buses, taxis and trucks, to deliver data in different ways. Protocols are special rules that help data move across the internet, each designed to send data for a specific kind of task. 
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-connectivity_88727bef)
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/2.%20VPC%20Traffic%20Flow%20and%20Security/Security%20group_create.png?raw=true)
 
----
+### Inbound vs Outbound rules
 
-## EC2 Instance Connect
+* Inbound rules: Inbound rules control the data that can enter the resources in your security group. 
 
-EC2 Instance Connect provides temporary, AWS-managed SSH access to Linux instances without managing persistent key pairs. It reduces key distribution overhead while still relying on standard network paths and security controls.
+In this scenario, setting up inbound rules is important for allowing users to access your public website, while 
+Examples of inbound data: Visitors and form submissions to your website.
+I  configured an inbound rule that allows all inbound HTTP traffic.
 
-Initial access failed due to network or security misconfiguration. Potential causes included missing inbound rules, incorrect source IP restrictions, improper protocol or port settings, or incorrect association of security groups with the instance.
-
-The issue was resolved by validating subnet routing and confirming a valid route to the internet gateway. Route table entries were adjusted to ensure outbound and return traffic could traverse the expected path, restoring external reachability and access.
-
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-connectivity_1cbb1b88)
-
----
-
-## Connectivity Between Servers
-
-ICMP was used to test connectivity between the EC2 instance and external endpoints. This validated that traffic could leave the subnet and receive responses through the configured routing path.
-
-Ping results provided a basic signal of network reachability. Successful replies indicated that routing, security groups, and network ACLs allowed ICMP traffic. Failures would have pointed to blocked protocols or missing routes.
-
-Successful tests confirmed that the VPC configuration supported basic traffic flow. This step validated the combined behavior of subnets, routing tables, and security controls rather than the EC2 instance in isolation.
-
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-connectivity_defghijk)
+* Outbound rules: Outbound rules are rules to control that data that your resources can send out.
+By default, Outbound rule will allow all outbound traffic.
+outbound rules help manage how your server interacts with other parts of the internet.
+Examples of outbound data: Your server requests data from another service; your app sends out an email notification.
 
 ---
 
-## Troubleshooting Connectivity
+## Network ACLs
 
-Connectivity issues were investigated by reviewing security group rules, network ACLs, and network interface attachments. Diagnostic tools such as ping and traceroute were used to identify where traffic was being dropped or blocked.
+Think of Network ACLs as traffic cops stationed at every entry and exit point of your subnet, checking each data packet against a table of ACL rules before allowing them through.
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-connectivity_4a9e8014)
+### Security groups vs. network ACLs
+
+* Network ACLs are used to set broad traffic rules that apply to an entire subnet. For example, blocking incoming traffic from a particular range of IP addresses or denying all outbound traffic to certain ports.
+* Security groups allow for more granular control, managing access to individual resource. You can specify which ports and protocols are allowed for each connected resource.  
+<br>
+Having both is a great security practice! You can set broad restrictions at the subnet level with ACLs, and more specific limits at the resource level through security groups. This dual layer takes security to the next level as traffic must pass through multiple checks, which reduces the chances of unwanted access.
+
+### Default vs Custom Network ACLs
+
+Similar to security groups, network ACLs use inbound and outbound rules
+AWS sets up a default network ACL for every VPC in your account. This default is designed to allow all traffic to move freely until you decide to customize the rules to fit your needs.
+Just like security groups, network ACLs use inbound and outbound rules to decide which data packets are allowed to enter or leave subnets:
+
+* Rule 100 Inbound allows all inbound traffic into the Public Subnet.
+* Rule 100 Outbound allows all traffic out of the Public Subnet.
+
+The second line in each ruleset shows an asterisk (*) that acts as a catch-all rule in case traffic does not match any of the earlier rules. In our case, since Rule 100 already allows all traffic, the asterisk rule won't actually come into play.
+This means default network ACLs allow all inbound and outbound traffic, unless customized.
+
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/2.%20VPC%20Traffic%20Flow%20and%20Security/inbound%20rules.png?raw=true)
+
+### Recap
+
+* Client/User: A user enters the URL of your website into their web browser and hits enter.
+
+* Internet Gateway: The request is sent from the user's browser through the internet and reaches your internet gateway, MyWork IG.
+
+* VPC: The internet gateway forwards the user's request to the VPC it's attached to, MyWork VPC.
+
+* Route Table: Your VPC has a route table for your public subnet (called MyWork route table), which directs traffic to your EC2 instance hosting the website. The user's request get put on the local route in the route table.
+
+* Network ACL: While en route to your EC2 instance, the request has to pass through the network ACL associated with your public subnet. The network ACL has an inbound rule (rule 100) that lets in traffic from anywhere (0.0.0.0/0), so your request is let through.
+
+* Public Subnet: The request enters your public subnet Public 1 and travels to your EC2 instance within the subnet.
+
+* Security Group: The request reaches the security group MyWork Security Group attached to the EC2 instance. The security group has an inbound rule that allows HTTP traffic (Port 80) from anywhere (0.0.0.0/0), so the request can pass through.
+
+* EC2 Instance: The request reaches your EC2 instance hosting the website. The web server on the EC2 instance processes the request and prepares the response.
+
+* Data gets sent back: Website content is sent back to the user. The outbound traffic goes through the security group, public subnet, network ACL, route table, VPC, and internet gateway, and user gets to see website content load on their page.
 
 ---
 
-## Connectivity to the Internet
-
-Curl was used as an application-layer validation tool to confirm outbound internet access. Unlike ICMP, it tests TCP-based communication and validates that higher-layer traffic can reach external services.
-
-The curl request confirmed that the EC2 instance could establish outbound connections and receive application data. This demonstrated that routing, security controls, and DNS resolution supported real-world traffic patterns.
-
-### Ping vs Curl
-
-Ping validates basic network reachability using ICMP and is useful for confirming routing and latency. Curl operates at the application layer, validating protocol-specific connectivity and data transfer behavior. Both tools provide complementary signals during network validation.
-
 ---
-
-## Connectivity to the Internet
-
-Retrieving HTML content with curl confirmed successful data transfer from an external endpoint. This demonstrated functional outbound connectivity and validated that the instance could support application-level network operations.
-
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-connectivity_8ee57662)
-
----
-
----
-

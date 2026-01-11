@@ -9,6 +9,14 @@
 
 ---
 
+## Navigation
+
+| Previous | Next |
+|----------|------|
+| [Networking Introduction](./01-networking-introduction.md) | [Routing Boundaries](./03-routing-boundaries.md) |
+
+---
+
 ## Execution Metadata
 
 **Execution Type:** Canonical  
@@ -139,8 +147,4 @@ The AWS Console provides visual feedback and simplifies initial configuration an
 
 ---
 
-## Navigation
 
-| Previous | Next |
-|----------|------|
-| [Networking Introduction](./01-networking-introduction.md) | [Routing Boundaries](./03-routing-boundaries.md) |

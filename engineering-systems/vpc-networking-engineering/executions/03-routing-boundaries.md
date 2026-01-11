@@ -92,7 +92,7 @@ A VPC (Virtual Private Cloud) is like your own private space inside AWS. In this
 
 ### Mission to accomplish:
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/gameplan.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/gameplan.png?raw=true)
 
 ---
 
@@ -121,11 +121,11 @@ Here's how EC2 Instance Connect works:
 My first attempt at getting direct access to my public server resulted in an error, because the security group associated with MyWork Public Server lets in all inbound HTTP traffic, but this is not how we're trying to access our Public Server!
 We're trying to access MyWork Public Server using SSH through EC2 Instance Connect, which is a different traffic type.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Connect_public_server_error.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/Connect_public_server_error.png?raw=true)
 
 I fixed this error by updating MyWork Public Server's security group so it can let in SSH traffic. Choosing Anywhere-IPv4 as the source lets in SSH connections from any IPv4 address.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Connect_public_server_Success.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/Connect_public_server_Success.png?raw=true)
 
 ---
 

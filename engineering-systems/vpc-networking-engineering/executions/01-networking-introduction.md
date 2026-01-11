@@ -5,8 +5,15 @@
 
 **Project Link:** [View Project](http://learn.nextwork.org/projects/aws-networks-intro)
 
-**Author:** Roy Piring Jr  
-**Email:** rpiringhawaii@gmail.com
+**Author:** Arun Srinivasan  
+**Linkedin:** www.linkedin.com/in/arun-srinivasan-tech
+
+---
+
+#### Navigation
+| Next |
+|------|
+| [Subnet Segmentation](./02-subnet-segmentation.md) | 
 
 ---
 
@@ -64,10 +71,4 @@ Networks consist of interconnected systems that exchange data using defined prot
 A VPC is a logically isolated virtual network within AWS where resources are deployed with explicitly defined IP ranges, routing behavior, and access controls. It exists to provide isolation, enforce security boundaries, enable custom network topology, and support compliance requirements through deterministic network design.
 
 ---
-
-## Navigation
-
-| Next |
-|------|
-| [Subnet Segmentation](./02-subnet-segmentation.md) |
 

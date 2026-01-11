@@ -41,8 +41,6 @@
 
 ## VPC Traffic Flow and Security
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-security_92b0b0b4)
-
 ---
 
 ## Introducing Today's Project!
@@ -182,8 +180,6 @@ This means default network ACLs allow all inbound and outbound traffic, unless c
 * Data gets sent back: Website content is sent back to the user. The outbound traffic goes through the security group, public subnet, network ACL, route table, VPC, and internet gateway, and user gets to see website content load on their page.
 
 ---
----
-
 ---
 
 

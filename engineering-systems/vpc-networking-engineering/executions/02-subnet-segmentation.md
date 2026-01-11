@@ -52,7 +52,7 @@ The VPC exists to enforce deterministic network isolation, establish security bo
 The project scope was intentionally limited to core networking primitives. The emphasis was on understanding configuration boundaries and their downstream impact rather than deploying application workloads.
 
 The depth of configuration options highlights how routing tables, subnet placement, and security controls directly influence reachability and isolation. These elements must be aligned to prevent unintended exposure or loss of connectivity.
-
+Completing this project provided me with valuable hands-on experience in the foundational aspects of AWS networking. I was able to deepen my understanding of key networking concepts such as IPv4 addressing, CIDR blocks, and subnetting.
 ---
 
 ## Virtual Private Clouds (VPCs)

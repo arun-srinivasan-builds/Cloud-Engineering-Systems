@@ -148,13 +148,13 @@ This single line indicates that your Public Server has sent out a ping message a
 Usually, when you ping another computer successfully, you should see several replies back instantly. Each reply tells you how long it took for the message to go to the Private Server and come back.
 If you don't get any replies (that's our situation right now), or if the replies stop suddenly, it's usually a sign that there's a problem with the connection. 
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Ping_private_server_fail.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/Ping_private_server_fail.png?raw=true)
 
 ---
 
 Troubleshooting Connectivity
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Private_sg_not_allowing_inbound_ICMP%20traffic.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/Private_sg_not_allowing_inbound_ICMP%20traffic.png?raw=true)
 
 How did you resolve this error?
 * Our route table is set up perfectly (zero issues there!), but the MyWork NACL tab shows us that all traffic inbound and outbound are denied.
@@ -168,15 +168,15 @@ What is ICMP - IPv4?
 When you set a rule for All ICMP - IPv4, you're allowing all types of ICMP messages for IPv4 addresses. This covers a wide range of operational messages that are essential for diagnosing network connectivity issues, ping requests and responses are just one type of ICMP messages.
 Set the Source to traffic coming from your public subnet - 10.0.0.0/24.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/public_to_private_talk.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/public_to_private_talk.png?raw=true)
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Ping_private_server_Success.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/Ping_private_server_Success.png?raw=true)
 
 ---
 
 ## 3. Connectivity to the Internet
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/Test%20VPC%20connectivity%20with%20the%20internet.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/Test%20VPC%20connectivity%20with%20the%20internet.png?raw=true)
 
 I used curl to test the connectivity between my Public Server(EC2 instance) and Internet.
 What does curl mean?
@@ -189,7 +189,7 @@ Ping and curl are different because Ping checks if one computer can contact anot
 What was the successful curl command you ran?
 I ran the curl command Curl google.com which returned the complete HTML content of google.com website
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/5.%20Testing%20VPC%20Connectivity/curl.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/curl.png?raw=true)
 
 
 ---

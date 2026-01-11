@@ -48,11 +48,11 @@ Amazon VPC is a logically isolated networking boundary within an AWS account. It
 The VPC exists to enforce deterministic network isolation, establish security boundaries, and enable controlled connectivity to dependent services while supporting future scalability.
 
 ### Personal reflection
-
+Completing this project provided me with valuable hands-on experience in the foundational aspects of AWS networking. I was able to deepen my understanding of key networking concepts such as IPv4 addressing, CIDR blocks, and subnetting.<br>
 The project scope was intentionally limited to core networking primitives. The emphasis was on understanding configuration boundaries and their downstream impact rather than deploying application workloads.
 
 The depth of configuration options highlights how routing tables, subnet placement, and security controls directly influence reachability and isolation. These elements must be aligned to prevent unintended exposure or loss of connectivity.
-Completing this project provided me with valuable hands-on experience in the foundational aspects of AWS networking. I was able to deepen my understanding of key networking concepts such as IPv4 addressing, CIDR blocks, and subnetting.
+
 ---
 
 ## Virtual Private Clouds (VPCs)
@@ -69,7 +69,7 @@ VPCs are the central networking construct in AWS. They provide an isolated addre
 
 AWS automatically provisions a default VPC in each region to allow immediate resource launch without manual network setup. While convenient, default VPCs abstract critical configuration decisions. This project assumes explicit VPC creation to retain full control over network design.
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-vpc_2facf927)
+![Image](http://learn.nextwork.org/courageous_brown_peaceful_mermaid/uploads/aws-networks-vpc_2facf927)
 
 ### Defining IPv4 CIDR blocks
 
@@ -91,7 +91,7 @@ Subnets are scoped to a single Availability Zone and define routing behavior thr
 
 Public and private subnets differ by routing configuration. Public subnets include a route to an internet gateway and support externally reachable resources. Private subnets exclude such routes and restrict direct internet ingress, supporting internal or protected workloads.
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-vpc_157c4219)
+![Image](http://learn.nextwork.org/courageous_brown_peaceful_mermaid/uploads/aws-networks-vpc_157c4219)
 
 ### Auto-assigning public IPv4 addresses
 

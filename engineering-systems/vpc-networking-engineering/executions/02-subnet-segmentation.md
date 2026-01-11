@@ -9,7 +9,7 @@
 
 ---
 
-## Navigation
+#### Navigation
 
 | Previous | Next |
 |----------|------|

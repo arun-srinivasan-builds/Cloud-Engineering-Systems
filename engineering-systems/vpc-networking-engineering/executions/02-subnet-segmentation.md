@@ -111,7 +111,7 @@ Internet gateways provide a managed attachment point between a VPC and the publi
 
 Connecting an internet gateway alone is insufficient. Route table associations determine whether traffic can traverse the gateway. Misconfiguration results in unreachable resources despite gateway attachment.
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-vpc_4ae90410)
+![Image](http://learn.nextwork.org/courageous_brown_peaceful_mermaid/uploads/aws-networks-vpc_4ae90410)
 
 ---
 
@@ -129,7 +129,7 @@ CloudShell provides a browser-based, pre-authenticated CLI environment. The AWS 
 
 CLI-driven configuration requires precise parameters. Errors in CIDR ranges, subnet associations, or gateway attachments propagate quickly and affect dependent resources. Validation is required after each operation.
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-vpc_9b2465411)
+![Image](http://learn.nextwork.org/courageous_brown_peaceful_mermaid/uploads/aws-networks-vpc_9b2465411)
 
 ### Comparing CloudShell vs AWS Console
 

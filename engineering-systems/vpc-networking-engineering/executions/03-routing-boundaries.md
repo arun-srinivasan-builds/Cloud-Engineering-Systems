@@ -4,7 +4,7 @@
 
 **Project Link:** [View Project](http://learn.nextwork.org/projects/aws-networks-connectivity)
 
-** Author: Arun Srinivasan | December 2025
+** Author: Arun Srinivasan | December 2025<br>
 ** Linkedin: www.linkedin.com/in/arun-srinivasan-tech
 
 ---

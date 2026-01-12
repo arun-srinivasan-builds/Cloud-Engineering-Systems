@@ -9,7 +9,7 @@ The business objective is not to “build a VPC,” but to **remove networking a
 This document defines the problem, requirements, constraints, and success criteria that drive all architectural and implementation decisions in this system.
 
 ---
-## Navigation
+#### Navigation
 
 | Previous | Next |
 |----------|------|

@@ -25,11 +25,11 @@ This directory holds complete cloud Engineering Systems, grouped by domain. Each
 Every Engineering System follows the same structure:
 
 - **Readme.md** – System overview and navigation  
-- **business-context.md** – Problem, requirements, constraints, non-goals  
 - **architecture.md** – Design, boundaries, tradeoffs  
 - **implementation.md** – Step-by-step implementation  
-- **validation.md** – Verification, observed results, failure conditions  
 - **executions/** – Ordered, pattern-specific walkthroughs  
+- **validation.md** – Verification, observed results, failure conditions  
+
 
 ---
 

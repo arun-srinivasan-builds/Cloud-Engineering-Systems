@@ -18,11 +18,6 @@ Primary links:
 - [What This Repository Proves](#what-this-repository-proves) – Validated outcomes and capabilities
 - [Featured Systems (Start Here)](#featured-systems-start-here) – Secure networking
 
-**Design & Decisions**
-- [Featured Systems (Implementation & Evidence)](#featured-systems-start-here) – System scope, execution paths, validation
-- [Operating Standards](#operating-standards) – Security, reliability, cost, maintainability
-- [Quality Standards](./QUALITY_STANDARDS.md) – Quality bar and verification rules
-
 **Build & Validate**
 - [Engineering Systems](./engineering-systems/Readme.md) – All system implementations
 - [Implementation & Validation Guides](./engineering-systems/Readme.md)

@@ -27,7 +27,7 @@ Every Engineering System follows the same structure:
 - **Readme.md** – System overview and navigation  
 - **architecture.md** – Design, boundaries, tradeoffs  
 - **implementation.md** – Step-by-step implementation  
-- **executions.md** – Ordered, pattern-specific walkthroughs  
+- **executions/** – Ordered, pattern-specific walkthroughs  
 - **validation.md** – Verification, observed results, failure conditions  
 
 

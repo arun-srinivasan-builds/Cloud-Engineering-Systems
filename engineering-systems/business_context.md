@@ -13,7 +13,7 @@ This document defines the problem, requirements, constraints, and success criter
 
 | Previous | Next |
 |----------|------|
-| [README](./README.md) | [Architecture](./architecture.md) |
+| [Read Me](./Readme.md) | [Architecture](./architecture.md) |
 
 ---
 

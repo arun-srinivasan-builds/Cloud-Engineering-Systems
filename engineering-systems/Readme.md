@@ -35,8 +35,16 @@ Every Engineering System follows the same structure:
 
 ## Where to Start
 
-- **Overview & Context** → `README.md`, `business-context.md`  
+- **Overview & Context** → `README.md`(./Readme.md), `business-context.md` (./business_context.md) 
 - **Design & Decisions** → `architecture.md`  
 - **Build & Validate** → `implementation.md`, `validation.md`  
+
+#### Navigation
+
+| Previous | Next |
+|----------|------|
+| [Read Me](./Readme.md) | [Architecture](./architecture.md) |
+
+---
 
 ---

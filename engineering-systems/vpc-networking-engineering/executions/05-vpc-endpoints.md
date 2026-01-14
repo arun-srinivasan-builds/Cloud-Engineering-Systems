@@ -83,7 +83,7 @@ In today's project, I used Amazon VPC to set up VPC Endpoint , Specifically S3 g
 This project took me around 90 minutes including documentation.
 
 ### Mission to accomplish:
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/9.%20VPC%20Endpoints/game%20plan.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/game%20plan.png?raw=true)
 
 ---
 
@@ -115,7 +115,7 @@ I started my project by launching three key resources, a VPC, an EC2 instance an
 What did you set up in this step?<br>
 I also set up Amazon S3 bucket and uploaded 2 files in it to access them later in this project
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/9.%20VPC%20Endpoints/objects%20in%20S3.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/objects%20in%20S3.png?raw=true)
 
 ---
 
@@ -153,14 +153,14 @@ The command I ran was 'aws s3 ls'. This command is used to list all S3 buckets i
 What did your terminal respond with?
 When I ran the command 'aws s3 ls' again, the terminal responded with the list of s3 buckets. This indicated that the access key is successfully configured to connect to AWS environment from EC2 instance instead of AWS management console.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/9.%20VPC%20Endpoints/aws%20s3%20ls%20output.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/aws%20s3%20ls%20output.png?raw=true)
 
 ---
 
 What was the next command you ran?
 I also tested the command 'aws s3 ls s3://mywork-run2780 ' which returned the list of objects in my bucket.
 
-![Image](http://learn.nextwork.org/courageous_brown_peaceful_mermaid/uploads/aws-networks-endpoints_4334d779)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/objects%20in%20my%20bucket.png?raw=true)
 
 ---
 
@@ -175,7 +175,7 @@ This command will copy the text file test form the /tmp folder to my s3 bucket '
 
 The third command I ran was 'aws s3 ls' which validated that the test file 'test.txt' is copied to my s3 bucket 'mywork-vpc-project-arun'.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/9.%20VPC%20Endpoints/objects%20in%20my%20bucket.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/touch.png?raw=true)
 
 ---
 
@@ -213,7 +213,7 @@ Gateways work by simply adding a route to your VPC route table that directs traf
 What is an endpoint?
 An endpoint in AWS is a service that allows private connections between your VPC and other AWS services without needing the traffic to go over the internet.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/9.%20VPC%20Endpoints/endpoint_create.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/endpoint_create.png?raw=true)
 
 ---
 
@@ -226,7 +226,7 @@ What does your bucket policy do?
 My bucket policy denies all actions (s3:*) on your S3 bucket and its objects to everyone (Principal: "*")... unless the access is from the VPC endpoint with the ID defined in aws:sourceVpce.
 In other words, only traffic coming from your VPC endpoint can get any access to your S3 bucket!
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/9.%20VPC%20Endpoints/bucket%20policy.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/bucket%20policy.png?raw=true)
 
 ---
 
@@ -238,7 +238,7 @@ Right after saving my bucket policy, my S3 bucket page showed 'denied access' wa
 Why did you update your route table?
 I also had to update my route table because my Route table by default did not provide a route for traffic in my public subnet to the VPC endpoints.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/9.%20VPC%20Endpoints/bucket_error.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/bucket_error.png?raw=true)
 
 ---
 
@@ -250,7 +250,7 @@ To update my route table, I visited the endpoints page of my VPC console and mod
 What was the terminal's response?
 After updating my public subnet's route table, my EC2 instance could connect with S3 bucket. Access was no longer denied!
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/9.%20VPC%20Endpoints/endpoint_route%20table_added.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/endpoint_route%20table_added.png?raw=true)
 
 ---
 

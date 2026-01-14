@@ -95,28 +95,24 @@ A VPC (Virtual Private Cloud) is like your own private space inside AWS. In this
 ## In the first part of my project...
 
 ### Step 1 - Architecture set up and Connect to EC2 instance
-
-What are we doing in this step?
+What are we doing in this step?<br>
 In this project, I will be setting up the foundations of this project; i.e, launching a VPC, EC2 instance and S3 bucket and test the set up in this last step of the networking project.
 I will be connecting directly to EC2 instance using EC2 instance connect. Connecting to my EC2 instance will help us in accessing S3 and run commands later in this project.
 
 ### Step 2 - Set up access keys
-
-What are we doing in this step?
+What are we doing in this step?<br>
 In this step, I will set up an access key so that my EC2 instance will have access to AWS environment.
 
 ### Step 3 - Interact with S3 bucket
-
 In this step, I will be applying my access key credentials to my EC2 instance and then will be using AWS CLI and EC2 instance to access Amazon S3.
 
 ---
 
 ### Step 1 - Architecture set up and connect to EC2 instance
-
-What resources did you launch in this step?
+What resources did you launch in this step?<br>
 I started my project by launching three key resources, a VPC, an EC2 instance and S3 bucket.
 
-What did you set up in this step?
+What did you set up in this step?<br>
 I also set up Amazon S3 bucket and uploaded 2 files in it to access them later in this project
 
 ![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/9.%20VPC%20Endpoints/objects%20in%20S3.png?raw=true)

@@ -8,7 +8,13 @@
 **Email:** rpiringhawaii@gmail.com
 
 ---
+## Navigation
 
+| Previous | Next |
+|----------|------|
+| [VPC Endpoints](./05-vpc-endpoints.md) | [EC2 Networking](./07-ec2-networking.md) |
+
+---
 ## Execution Metadata
 
 **Execution Type:** Reference  
@@ -39,126 +45,139 @@
 
 ---
 
-## Introducing Today's Project!
+In this project "Access S3 from a VPC", it's time to go beyond the boundaries of a VPC.
+For example, Amazon S3 is a classic AWS service that doesn't live inside a VPC! S3 is, by default, accessible from the internet, so you can manage its access and security without having to change network settings or internet gateways.
+And S3 is just the beginning. Services like AWS IAM, Amazon Route 53, and even databases like DynamoDB also live outside of your VPC.
 
-### What is Amazon VPC?
-
-Amazon VPC provides an isolated virtual network boundary for AWS resources. It defines IP addressing, routing, and traffic controls to constrain how resources communicate internally and externally. The VPC establishes the security and network perimeter required for controlled access to managed services such as S3.
+#### Get ready to:
+* Set up a VPC with an EC2 instance.
+* Use access keys to give your EC2 instance the power to use your AWS account.
+* Interact with Amazon S3... through your EC2 instance!
 
 ### How I used Amazon VPC in this project
 
-The VPC serves as the primary network boundary for an EC2 workload that requires access to Amazon S3. Network configuration limits exposure while enabling private, service-level connectivity to S3, avoiding public internet dependency.
+In this project, I used Amazon VPC as the foundational network environment that allowed my EC2 instance to securely interact with Amazon S3.
+* Created a custom VPC with a CIDR block (10.0.0.0/16) to host my resources, ensuring isolation from other networks.
+* Configured a public subnet within the VPC so your EC2 instance could have internet access and connect via EC2 Instance Connect.
+* Launched an EC2 instance inside the VPC, inheriting the VPC’s routing and security rules.
+* Attached a security group that was tied to the VPC that allowed inbound SSH traffic, enabling you to connect to the instance.
+* Enabled public IP assignment since EC2 Instance Connect requires a public IP.
+* Provided connectivity to external AWS services: Even though S3 lives outside of VPCs, my EC2 instance inside the VPC was able to reach it over the internet once credentials were configured.
 
-### One thing I didn't expect in this project was...
+##### One thing I didn't expect in this project was...
 
-Configuring a VPC endpoint for S3 requires explicit alignment between subnets, route tables, and security controls. Endpoint placement and associated policies materially affect whether traffic remains private and functional.
+What is one thing you didn't expect in this project?
+One thing you probably didn’t expect in this project was how Amazon S3 lives outside of your VPC.
+At first glance, it feels natural to assume that all AWS services would sit inside the VPC you carefully designed. But S3 (along with services like IAM, Route 53, and DynamoDB) is actually a global service accessible over the internet, not bound to your VPC’s private network. That’s why you had to configure access keys and use the AWS CLI from your EC2 instance to reach it.
 
-### This project took me...
+This project took me 60 minutes including documentation.
 
-The implementation was completed within a constrained time window and focused on validating core networking concepts: VPC isolation, EC2 execution context, IAM-based access, and private S3 connectivity.
+## Personal reflection
+Completing this project gave me a deeper appreciation for how AWS services interact across boundaries. At first, I assumed that Amazon S3 would naturally sit inside my VPC, but learning that it exists outside and is accessed globally was an eye‑opening moment. It reminded me that cloud architecture often challenges our assumptions, and understanding these nuances is what separates a beginner from someone building secure, scalable systems.
+
+Working through the steps—creating the VPC, configuring subnets, launching an EC2 instance, and setting up access keys—reinforced the importance of network isolation, security groups, and credential management. I also realized how critical it is to follow best practices, like using IAM roles instead of static access keys, to ensure long‑term security and maintainability.
+
+On a personal level, I felt a sense of accomplishment when my EC2 instance successfully listed and uploaded files to the S3 bucket. That small validation—seeing the test.txt  file appear in my bucket—was a tangible reward for the effort I put into configuring the environment. It boosted my confidence in troubleshooting and reinforced my patience in working through AWS’s layers of configuration.
+
+### Mission to accomplish:
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/8.%20Access%20S3%20from%20a%20VPC/game%20plan.png?raw=true)
+
+---
+
+### What is Amazon VPC?
+
+A VPC (Virtual Private Cloud) is like your own private space inside AWS. In this space, you can set up and run AWS resources in a network that you control. The main idea is that it’s separate and secure, so your resources don’t mix withothers.
 
 ---
 
 ## In the first part of my project...
 
 ### Step 1 - Architecture set up
-
-A dedicated VPC was created to host an EC2 instance that serves as the execution environment for S3 interactions. This establishes network isolation and deterministic traffic flow.
+In this step, I will be creating a VPC and an EC2 instance because we are going to interact with S3 bucket from our EC2 instance.
 
 ### Step 2 - Connect to my EC2 instance
+In this step, I will be connecting to EC2 instance, whcih is Instance-MyWork using EC2 instance connect.
 
-Direct access to the EC2 instance enables validation of network reachability, identity configuration, and service access from within the VPC context.
+### Step 3 - Create S3 bucket
 
-### Step 3 - Set up access keys
-
-AWS access for the EC2 instance is provided through an IAM role with scoped permissions. This avoids static credentials and enforces least-privilege access to S3.
-
----
-
-## Architecture set up
-
-The VPC functions as the network foundation for the workload, providing controlled routing and security boundaries for the EC2 instance accessing S3.
-
-An S3 bucket was created to act as the target storage service for object operations initiated from within the VPC.
-
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-s3_4334d777)
+### Step 4 - Set up access keys
+In this step, I will creating an Access key because my EC2 instance needs credentials to access the AWS services.
 
 ---
 
-## Running CLI commands
+### Step 1 - Architecture set up
 
-The AWS CLI provides a direct interface for interacting with AWS services from the EC2 instance. Access is governed by the attached IAM role and network configuration.
+I started my project by launching VPC and created 1 public Subnet and no private subnet. 
 
-aws s3 ls verifies visibility of S3 resources from within the VPC execution environment.
+### Step 2 - Launched EC2 Instance
+Launched EC2 instance using EC2 instance connect.
 
-aws s3 cp s3://your-bucket-name/file.txt /tmp/file.txt retrieves an object from S3 to the instance filesystem, validating read access and end-to-end connectivity.
+### Step 3 - Create S3 bucket
+In this step, I launched an Amazon S3 bucket with 2 files inside. The S3 bucket will be accessed by my EC2 instance later in this project so we can test whether my access key has successfully given AWS access to my EC2 instance.
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-s3_e7fa8776)
-
----
-
-## Access keys
-
-### Credentials
-
-EC2 access to AWS services is enabled through coordinated configuration of security groups, network interfaces, route tables, IAM roles, DNS resolution, and an S3 VPC endpoint. Together, these components allow private service access without exposing credentials.
-
-Access keys represent static credentials for programmatic AWS access. They enable authenticated API calls but introduce risk if mishandled.
-
-Secret access keys function as confidential authentication material. Exposure results in unauthorized access and potential cost or data impact.
-
-### Best practice
-
-IAM roles attached to EC2 instances replace static access keys and eliminate the need to manage long-lived credentials.
 
 ---
 
 ## In the second part of my project...
 
-### Step 4 - Set up an S3 bucket
+### Step 4 - Connecting to my S3 bucket
 
-The S3 bucket provides centralized object storage accessible from within the VPC under controlled permissions.
+What are we doing in this step?
+In this step, I will be using AWS CLI command to try control/manage my s3 bucket. This means we will be interacting with our s3 bucket through our EC2 instance/VPC instead of AWS management console.
 
-### Step 5 - Connecting to my S3 bucket
+## Running CLI commands
 
-The EC2 instance is configured to interact with S3 using its IAM role and private network path.
+What is AWS CLI?
+AWS CLI is a special software called the AWS CLI (Command Line Interface) that you install and run on your computer to control AWS services directly from the command line i.e. your terminal! You can install this in your local computer too, and all EC2 instances come with it already installed.
+
+What was the first command you ran?
+The first command I ran was 'aws s3 ls'.
+This command is used to list all the s3 buckets in the AWS account(that the EC2 instance/application has access to).
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/8.%20Access%20S3%20from%20a%20VPC/objects%20in%20my%20s3.png?raw=true)
+
+The second command I ran was 'aws configure'. This command is used to set up my EC2 instance's credentials in order to access my AWS environment.
+
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/8.%20Access%20S3%20from%20a%20VPC/aws%20s3%20ls%20error.png?raw=true)
 
 ---
 
-## Connecting to my S3 bucket
+## Access keys
 
-aws s3 ls verifies visibility of S3 resources from within the VPC execution environment.
+What was the purpose of the 'aws configure' command?
+To set up my EC2 instance to interact with my AWS environment, I configured an access key ID, secret key, default region and default output format.
 
-The executed command and resulting output confirm that the EC2 instance can resolve, authenticate, and communicate with S3 using the configured network and identity controls.
+What are access keys?
+An access key ID is a part of a credential!
+Your credentials are made up of a username and password; think of the access key ID as the username.
+You don't automatically have one, but you can create access keys IDs through AWS IAM.
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-s3_4334d778)
+What is the secret access key?
+The secret access key is like the password that pairs with your access key ID (your username). You need both to access AWS services.
+Secret is a key word here - anyone who has it can access your AWS account, so we need to keep this away from anyone else!
 
----
-
-## Connecting to my S3 bucket
-
-The successful aws s3 ls output indicates that the AWS CLI is correctly configured and that S3 access is permitted. This validates IAM permissions and VPC-level connectivity to S3.
-
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-s3_4334d779)
+### Best practice
+What is the best practice alternative to using access keys?
+we're creating access keys and manually applying them in our EC2 instance, but typically the recommended way is to create an IAM role with the necessary permissions and then attaching that role to your EC2 instance.
+Your EC2 instance would inherit the permissions from the role, and this is best practice as you can easily attach and detach EC2 instances from roles to give and take away their credentials.
+We aren't using this method so that we can learn about access keys, but roles are usually a better alternative for security.
 
 ---
 
 ## Uploading objects to S3
 
-aws s3 cp <local_file_path> s3://<your_bucket_name>/<desired_file_path> uploads a local file to S3, creating a new object within the bucket.
+What was the first command you ran?
+To upload a new file to my bucket, I first ran the command 'sudo touch /tmp/test.txt'.
+This command creates a text file named 'test' in /tmp folder.
 
-aws s3 cp s3://your-bucket-name/your-object.txt /tmp/downloaded_file.txt retrieves an object from S3, confirming bidirectional access.
+What was the second command you ran?
+The second command I ran was 'aws s3 cp /tmp/test.txt s3://mywork-vpc-project-arun'.
+This command will copy the text file test form the /tmp folder to my s3 bucket 'mywork-vpc-project-arun'
 
-aws s3 ls s3://your-bucket-name lists bucket contents from within the VPC, validating that routing, endpoint configuration, and security rules permit outbound S3 access.
+What was the third command you ran?
+The third command I ran was 'aws s3 ls' which validated that the test file 'test.txt' is copied to my s3 bucket 'mywork-vpc-project-arun'.
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-s3_3e1e79a2)
+![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/8.%20Access%20S3%20from%20a%20VPC/sudo%20command.png?raw=true)
 
 ---
-
 ---
 
-## Navigation
-
-| Previous | Next |
-|----------|------|
-| [VPC Endpoints](./05-vpc-endpoints.md) | [EC2 Networking](./07-ec2-networking.md) |

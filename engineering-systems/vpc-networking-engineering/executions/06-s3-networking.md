@@ -4,8 +4,8 @@
 
 **Project Link:** [View Project](http://learn.nextwork.org/projects/aws-networks-s3)
 
-**Author:** Roy Piring Jr  
-**Email:** rpiringhawaii@gmail.com
+**Author:** Arun Srinivasan  
+**Linkedin:** www.linkedin.com/in/arun-srinivasan-tech
 
 ---
 ## Navigation

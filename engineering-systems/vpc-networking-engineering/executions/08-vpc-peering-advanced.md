@@ -12,7 +12,7 @@
 
 | Previous | Next |
 |----------|------|
-| [EC2 Networking](./07-ec2-networking.md) | [CloudFront Integration](./09-cloudfront-integration.md) |
+| [EC2 Networking](./07-ec2-networking.md) | [Isolated Network Test - Private Subnet](./09-isolated-network-test.md) |
 
 ---
 

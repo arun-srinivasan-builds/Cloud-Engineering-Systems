@@ -25,9 +25,8 @@ No implementation detail.
 | EC2 Networking Behavior | PASS | 07-ec2-networking.md |
 | Private Service Connectivity (S3) | PASS | 05-vpc-endpoints.md, 06-s3-networking.md |
 | Multi-VPC Connectivity (Peering) | PASS | 08-vpc-peering-advanced.md |
-| Isolated Subnet Controls | PASS | 10-isolated-network-test.md |
-| Observability (VPC Flow Logs) | PASS | 11-flow-logs-validation.md |
-| CDN Origin Access (CloudFront) | PASS | 09-cloudfront-integration.md |
+| Isolated Subnet Controls | PASS | 09-isolated-network-test.md |
+| Observability (VPC Flow Logs) | PASS | 10-flow-logs-validation.md |
 
 ---
 
@@ -43,7 +42,6 @@ Validation covers:
 - Cross-VPC routing via peering
 - Network isolation guarantees
 - Traffic observability via Flow Logs
-- CloudFront to S3 origin access behavior
 
 ---
 
@@ -103,9 +101,9 @@ Validation covers:
 
 | Test | Expected Result | Observed Result | Evidence |
 |----|----------------|----------------|----------|
-| Internet egress | No outbound internet access | Connectivity failed as expected | 10-isolated-network-test.md |
-| Route isolation | No IGW or NAT routes present | Routes confirmed absent | 10-isolated-network-test.md |
-| Network ACL enforcement | Traffic filtered per isolation rules | Behavior matched configuration | 10-isolated-network-test.md |
+| Internet egress | No outbound internet access | Connectivity failed as expected | 09-isolated-network-test.md |
+| Route isolation | No IGW or NAT routes present | Routes confirmed absent | 09-isolated-network-test.md |
+| Network ACL enforcement | Traffic filtered per isolation rules | Behavior matched configuration | 09-isolated-network-test.md |
 
 ---
 
@@ -113,30 +111,20 @@ Validation covers:
 
 | Test | Expected Result | Observed Result | Evidence |
 |----|----------------|----------------|----------|
-| Flow Logs enabled | Logs capture traffic | Logs delivered successfully | 11-flow-logs-validation.md |
-| Accepted traffic visibility | ACCEPT records present | Confirmed | 11-flow-logs-validation.md |
-| Rejected traffic visibility | REJECT records present | Confirmed | 11-flow-logs-validation.md |
-| Troubleshooting support | Logs usable for diagnosis | Used to validate routing | 11-flow-logs-validation.md |
+| Flow Logs enabled | Logs capture traffic | Logs delivered successfully | 10-flow-logs-validation.md |
+| Accepted traffic visibility | ACCEPT records present | Confirmed | 10-flow-logs-validation.md |
+| Rejected traffic visibility | REJECT records present | Confirmed | 10-flow-logs-validation.md |
+| Troubleshooting support | Logs usable for diagnosis | Used to validate routing | 10-flow-logs-validation.md |
 
 ---
 
-## CDN Origin Access (CloudFront)
-
-| Test | Expected Result | Observed Result | Evidence |
-|----|----------------|----------------|----------|
-| Restricted S3 origin | Access denied | Denial observed | 09-cloudfront-integration.md |
-| Correct origin access | CDN serves content | Access restored successfully | 09-cloudfront-integration.md |
-| Public bucket avoidance | Bucket not broadly public | Access controlled via origin | 09-cloudfront-integration.md |
-
----
 
 ## Negative Testing Summary
 
 | Scenario | Expected Result | Observed Result | Evidence |
 |--------|----------------|----------------|----------|
 | Incorrect routing | Connectivity failure | Failure observed | 03-routing-boundaries.md |
-| Over-restrictive S3 permissions | CDN access denied | Denial observed | 09-cloudfront-integration.md |
-| Isolated subnet egress | Internet access blocked | Block confirmed | 10-isolated-network-test.md |
+| Isolated subnet egress | Internet access blocked | Block confirmed | 09-isolated-network-test.md |
 
 ---
 
@@ -160,7 +148,6 @@ The system demonstrably enforces:
 - Private AWS service access
 - Strong isolation guarantees
 - Observable and auditable traffic flow
-- Correct CDN origin access controls
 
 This confirms alignment between **architecture intent**, **implementation**, and **runtime behavior**.
 

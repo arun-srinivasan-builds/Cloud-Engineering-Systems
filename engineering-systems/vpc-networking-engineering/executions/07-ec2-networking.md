@@ -43,8 +43,6 @@
 
 ## Launching VPC Resources
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-ec2_8ee57662)
-
 ---
 
 In this project, Launching VPC Resources, we're going to level up by launching resources into our VPC.
@@ -99,7 +97,7 @@ The .pem format, which stands for Privacy Enhanced Mail, started off as a way to
 
 ## Mission to accomplish
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/4.%20Launching%20VPC%20Resources/game%20plan.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/game%20plan_launching_vpc_resource.png?raw=true)
 
 ---
 
@@ -118,7 +116,7 @@ I had to change my EC2 instance's networking settings by:
 * For the Firewall (security groups), we've already created the security group for your public subnet's resources. Choose Select existing security group.
 Select MyWork Public Security Group.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/4.%20Launching%20VPC%20Resources/Public%20server%20create.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/Public%20server%20create.png?raw=true)
 
 ---
 
@@ -137,7 +135,7 @@ From a security point of view, anyone with that key can access all the instances
 What is my new security group's source?
 My private server security group source is my MyWork public security group which means only SSH traffic coming from resources associated with that security group would be allowed.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/4.%20Launching%20VPC%20Resources/Private%20Security%20group%20settings.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/Private%20Security%20group%20settings.png?raw=true)
 
 ---
 
@@ -161,7 +159,7 @@ Actually, you can have multiple VPCs with the same IPv4 CIDR block in the same A
 Bottom line, it's possible for your new VPC to share the same CIDR block as an existing one, but this set up will mean your overlapping VPCs can't talk to each other directly. That's why it'd be best practice to have completely unique CIDR blocks for each VPC in your account!
 
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/4.%20Launching%20VPC%20Resources/VPC%20create%20wizard.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/VPC%20create%20wizard.png?raw=true)
 
 ---
 

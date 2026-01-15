@@ -41,8 +41,6 @@
 
 ## Access S3 from a VPC
 
-![Image](http://learn.nextwork.org/refreshed_maroon_timid_jujube/uploads/aws-networks-s3_3e1e79a2)
-
 ---
 
 In this project "Access S3 from a VPC", it's time to go beyond the boundaries of a VPC.
@@ -80,7 +78,7 @@ Working through the steps—creating the VPC, configuring subnets, launching an 
 On a personal level, I felt a sense of accomplishment when my EC2 instance successfully listed and uploaded files to the S3 bucket. That small validation—seeing the test.txt  file appear in my bucket—was a tangible reward for the effort I put into configuring the environment. It boosted my confidence in troubleshooting and reinforced my patience in working through AWS’s layers of configuration.
 
 ### Mission to accomplish:
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/8.%20Access%20S3%20from%20a%20VPC/game%20plan.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/game%20plan_access%20s3%20from%20network.png?raw=true)
 
 ---
 
@@ -133,11 +131,11 @@ AWS CLI is a special software called the AWS CLI (Command Line Interface) that y
 What was the first command you ran?
 The first command I ran was 'aws s3 ls'.
 This command is used to list all the s3 buckets in the AWS account(that the EC2 instance/application has access to).
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/8.%20Access%20S3%20from%20a%20VPC/objects%20in%20my%20s3.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/objects%20in%20my%20s3.png?raw=true)
 
 The second command I ran was 'aws configure'. This command is used to set up my EC2 instance's credentials in order to access my AWS environment.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/8.%20Access%20S3%20from%20a%20VPC/aws%20s3%20ls%20error.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/aws%20s3%20ls%20error.png?raw=true)
 
 ---
 
@@ -176,7 +174,7 @@ This command will copy the text file test form the /tmp folder to my s3 bucket '
 What was the third command you ran?
 The third command I ran was 'aws s3 ls' which validated that the test file 'test.txt' is copied to my s3 bucket 'mywork-vpc-project-arun'.
 
-![Image](https://github.com/run2780/AWS-Projects/blob/main/1.%20AWS%20Networking/8.%20Access%20S3%20from%20a%20VPC/sudo%20command.png?raw=true)
+![Image](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/main/engineering-systems/vpc-networking-engineering/executions/screenshots/sudo%20command.png?raw=true)
 
 ---
 ---

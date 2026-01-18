@@ -42,7 +42,7 @@ The system is evaluated against explicit, testable goals:
 - **Cost Efficiency:** Network costs constrained to a defined monthly ceiling
 - **Operational Simplicity:** Clear topology, fast change validation, low cognitive load
 
-These goals are validated through structured testing documented in [validation.md](./implementation.md).
+These goals are validated through structured testing documented in `validation.md`.
 
 ---
 
@@ -109,6 +109,10 @@ This repository is intentionally structured to reflect how real systems are revi
   Execution phases and build decisions  
   → `implementation.md`
 
+- **Execution**  
+  Actual execution/deployments of each phases.  
+  → `execution.md`
+
 - **Validation**  
   Test results and evidence of correctness  
   → `validation.md`
@@ -125,7 +129,8 @@ Recommended reading order for reviewers:
 2. [Business Context.md](./business_context.md) – Why the system exists
 3. [Architecture.md](./architecture.md) – How the system is designed
 4. [implementation.md](./implementation.md) – How the system was built
-5. [validation.md](./validation.md) – Proof the system behaves as intended
+5. [Execution.md](./executaion.md) – Actual implementation
+6. [validation.md](./validation.md) – Proof the system behaves as intended
 
 ---
 

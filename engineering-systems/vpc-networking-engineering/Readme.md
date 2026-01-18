@@ -15,7 +15,7 @@ This is not a tutorial repository. It is an architectural and execution record i
 
 | Next |
 |------|
-| [Business Context](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/c66d68beb263de0a0b98cf37d58dabd1abe6dcb0/engineering-systems/vpc-networking-engineering/business_context.md) |
+| [Business Context](./business_context.md) |
 
 ---
 
@@ -87,9 +87,9 @@ The system is built incrementally, with validation at each stage:
 4. Multi-VPC connectivity patterns
 5. Observability and traffic analysis
 
-Execution steps and sequencing are documented in [implementation.md](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/c66d68beb263de0a0b98cf37d58dabd1abe6dcb0/engineering-systems/vpc-networking-engineering/implementation.md).
+Execution steps and sequencing are documented in [implementation.md](./implementation.md).
 
-Validation is performed through explicit checks covering connectivity, isolation, routing, security enforcement, observability, and cost behavior. Evidence and expected outcomes are documented in [validation.md](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/c66d68beb263de0a0b98cf37d58dabd1abe6dcb0/engineering-systems/vpc-networking-engineering/validation.md).
+Validation is performed through explicit checks covering connectivity, isolation, routing, security enforcement, observability, and cost behavior. Evidence and expected outcomes are documented in [validation.md](./validation.md).
 
 ---
 
@@ -121,11 +121,11 @@ Each document stays within its scope. Redundancy is minimized by design.
 
 Recommended reading order for reviewers:
 
-1. [Readme](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/09e5f105fac4b0b28379e9f6eefc88b720877a3a/engineering-systems/vpc-networking-engineering/Readme.md) – System orientation
-2. [Business Context.md](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/c66d68beb263de0a0b98cf37d58dabd1abe6dcb0/engineering-systems/vpc-networking-engineering/business_context.md) – Why the system exists
-3. [Architecture.md](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/c66d68beb263de0a0b98cf37d58dabd1abe6dcb0/engineering-systems/vpc-networking-engineering/archirtecture.md) – How the system is designed
-4. [implementation.md](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/c66d68beb263de0a0b98cf37d58dabd1abe6dcb0/engineering-systems/vpc-networking-engineering/implementation.md) – How the system was built
-5. [validation.md](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/c66d68beb263de0a0b98cf37d58dabd1abe6dcb0/engineering-systems/vpc-networking-engineering/validation.md) – Proof the system behaves as intended
+1. [Readme](./Readme.md) – System orientation
+2. [Business Context.md](./business_context.md) – Why the system exists
+3. [Architecture.md](./architecture.md) – How the system is designed
+4. [implementation.md](./implementation.md) – How the system was built
+5. [validation.md](./validation.md) – Proof the system behaves as intended
 
 ---
 

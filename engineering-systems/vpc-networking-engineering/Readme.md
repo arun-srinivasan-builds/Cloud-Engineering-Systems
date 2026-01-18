@@ -87,9 +87,9 @@ The system is built incrementally, with validation at each stage:
 4. Multi-VPC connectivity patterns
 5. Observability and traffic analysis
 
-Execution steps and sequencing are documented in [implementation.md](./implementation.md).
+Execution steps and sequencing are documented in `implementation.md`.
 
-Validation is performed through explicit checks covering connectivity, isolation, routing, security enforcement, observability, and cost behavior. Evidence and expected outcomes are documented in [validation.md](./validation.md).
+Validation is performed through explicit checks covering connectivity, isolation, routing, security enforcement, observability, and cost behavior. Evidence and expected outcomes are documented in `validation.md`.
 
 ---
 

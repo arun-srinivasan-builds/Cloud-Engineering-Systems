@@ -20,7 +20,7 @@ Primary links:
 
 **Build & Validate**
 - [Engineering Systems](./engineering-systems/Readme.md) – All system implementations
-- [Implementation](./engineering-systems/vpc-engineering-systems/implementation.md) & [Validation Guides](./engineering-systems/vpc-engineering-systems/validation.md)
+- [Implementation](./engineering-systems/vpc-networking-engineering/implementation.md) & [Validation Guides](./engineering-systems/vpc-networking-engineering/validation.md)
 - [Operating Requirements](./Operating_Requirements.md) – Operational constraints
 
 ---

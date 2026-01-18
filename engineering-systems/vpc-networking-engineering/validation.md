@@ -16,6 +16,14 @@ No implementation detail.
 
 ---
 
+## Navigation
+
+| Previous | Next |
+|----------|------|
+| [Implementation](./implementation.md) | [README](./Readme.md) |
+
+---
+
 ## Validation Summary
 
 | Domain | Status | Primary Evidence |
@@ -157,8 +165,3 @@ This document provides proof. Nothing more.
 
 ---
 
-## Navigation
-
-| Previous | Next |
-|----------|------|
-| [Implementation](./implementation.md) | [README](./README.md) |

@@ -15,7 +15,7 @@ This is not a tutorial repository. It is an architectural and execution record i
 
 | Next |
 |------|
-| [Business Context](./business_context.md) |
+| [Business Context](./business-context.md) |
 
 ---
 

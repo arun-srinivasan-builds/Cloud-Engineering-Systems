@@ -42,7 +42,7 @@ The system is evaluated against explicit, testable goals:
 - **Cost Efficiency:** Network costs constrained to a defined monthly ceiling
 - **Operational Simplicity:** Clear topology, fast change validation, low cognitive load
 
-These goals are validated through structured testing documented in [validation.md](https://github.com/arun-srinivasan-builds/Cloud-Engineering-Systems/blob/c66d68beb263de0a0b98cf37d58dabd1abe6dcb0/engineering-systems/vpc-networking-engineering/validation.md).
+These goals are validated through structured testing documented in [validation.md](./implementation.md).
 
 ---
 

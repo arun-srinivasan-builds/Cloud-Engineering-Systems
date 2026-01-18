@@ -20,7 +20,7 @@ No implementation detail.
 
 | Previous | Next |
 |----------|------|
-| [Implementation](./implementation.md) | [README](./Readme.md) |
+| [Implementation](./implementation.md) | [Readme](./Readme.md) |
 
 ---
 

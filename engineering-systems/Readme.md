@@ -16,7 +16,7 @@ This directory holds complete cloud Engineering Systems, grouped by domain. Each
 
 | System | What It Proves | Start Here | Execution | Evidence |
 |------|---------------|-----------|----------|----------|
-| [VPC Networking Engineering](./vpc-networking-engineering/README.md) | Secure network baselines and segmentation | [implementation.md](./vpc-networking-engineering/implementation.md) | [executions/](./vpc-networking-engineering/executions/) | [validation.md](./vpc-networking-engineering/validation.md) |
+| [VPC Networking Engineering](./vpc-networking-engineering/Readme.md) | Secure network baselines and segmentation | [implementation.md](./vpc-networking-engineering/implementation.md) | [executions/](./vpc-networking-engineering/executions/) | [validation.md](./vpc-networking-engineering/validation.md) |
 
 ---
 

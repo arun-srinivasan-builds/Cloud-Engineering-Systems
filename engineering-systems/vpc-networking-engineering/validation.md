@@ -153,12 +153,6 @@ This confirms alignment between **architecture intent**, **implementation**, and
 
 ---
 
-## Relationship to Other Documents
-
-- **Business Requirements:** `business-context.md`
-- **Design Intent:** `architecture.md`
-- **Execution Record:** `implementation.md`
-
 This document provides proof. Nothing more.
 
 ---

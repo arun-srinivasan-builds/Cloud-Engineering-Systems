@@ -29,12 +29,12 @@ Primary links:
 
 Selected entry points lead into complete Engineering Systems with strong signals. Each Feature System directly matches one Engineering System, which serves as the main source of truth.
 
-1. **[Secure VPC Networking Baseline](./feature-systems/fs-secure-vpc-networking-baseline/README.md)**  
+1. **[Secure VPC Networking Baseline](./engineering-systems/vpc-networking-engineering/baseline.md)**  
    Secure, isolated network infrastructure using VPC design, subnet segmentation, and security controls.  
    **Evidence:**  
    [Validation](./engineering-systems/vpc-networking-engineering/validation.md) |
    [Implementation](./engineering-systems/vpc-networking-engineering/implementation.md) |
-   [Execution Path](./engineering-systems/vpc-networking-engineering/implementation.md#execution-path-start-to-finish)
+   [Execution Path](./engineering-systems/vpc-networking-engineering/execution.md)
 
 ---
 

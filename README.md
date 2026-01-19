@@ -32,9 +32,9 @@ Selected entry points lead into complete Engineering Systems with strong signals
 1. **[Secure VPC Networking Baseline](./engineering-systems/vpc-networking-engineering/baseline.md)**  
    Secure, isolated network infrastructure using VPC design, subnet segmentation, and security controls.  
    **Evidence:**  
-   [Validation](./engineering-systems/vpc-networking-engineering/validation.md) |
    [Implementation](./engineering-systems/vpc-networking-engineering/implementation.md) |
-   [Execution Path](./engineering-systems/vpc-networking-engineering/execution.md)
+   [Validation](./engineering-systems/vpc-networking-engineering/validation.md) |
+   [Execution Path](./engineering-systems/vpc-networking-engineering/executions/)
 
 ---
 
